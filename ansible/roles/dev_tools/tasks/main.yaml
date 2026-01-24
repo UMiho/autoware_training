@@ -11,24 +11,29 @@
   community.general.git_config:
     list_all: true
     scope: global
-  register: git_lfs__git_global_config
+  register: dev_tools__git_lfs__git_global_config
 
 - name: Setup Git LFS
   ansible.builtin.command: git lfs install
-  when: "'filter.lfs.required' not in git_lfs__git_global_config.config_values"
+  when: "'filter.lfs.required' not in dev_tools__git_lfs__git_global_config.config_values"
   changed_when: true
 
-- name: Install pre-commit
-  ansible.builtin.pip:
-    name: pre-commit
+- name: Install pipx
+  become: true
+  ansible.builtin.apt:
+    name: pipx
     state: latest
-    executable: pip3
+    update_cache: true
+
+- name: Install pre-commit
+  community.general.pipx:
+    name: pre-commit
+    executable: /usr/bin/pipx
 
 - name: Install clang-format
-  ansible.builtin.pip:
+  community.general.pipx:
     name: clang-format
-    version: "{{ pre_commit_clang_format_version }}"
-    executable: pip3
+    executable: /usr/bin/pipx
 
 - name: Install Go
   become: true
@@ -37,23 +42,23 @@
     state: latest
     update_cache: true
 
-- name: Hold check of ros-{{ rosdistro + '-plotjuggler-ros' }}
+- name: Hold check of ros-{{ rosdistro + '-plotjuggler' }}
   ansible.builtin.command: apt-mark showhold
-  register: held_ros_packages
+  register: dev_tools__held_ros_packages
   changed_when: false
 
 - name: Install plotjuggler
   become: true
   ansible.builtin.apt:
     name:
-      - ros-{{ rosdistro }}-plotjuggler-ros
+      - ros-{{ rosdistro }}-plotjuggler
     state: latest
     update_cache: true
-  when: "'ros-' + rosdistro + '-plotjuggler-ros' not in held_ros_packages.stdout"
-  register: install_result
+  when: "'ros-' + rosdistro + '-plotjuggler' not in dev_tools__held_ros_packages.stdout"
+  register: dev_tools__install_result
   failed_when: false
 
-- name: Display warning if plotjuggler-ros package is held
+- name: Display warning if plotjuggler package is held
   ansible.builtin.debug:
-    msg: ROS package 'ros-{{ rosdistro }}-plotjuggler-ros' is apt-mark hold. Skipping installation.
-  when: not install_result.changed
+    msg: ROS package 'ros-{{ rosdistro }}-plotjuggler' is apt-mark hold. Skipping installation.
+  when: not dev_tools__install_result.changed
