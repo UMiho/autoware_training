@@ -1,6 +1,4 @@
 - name: Install gdown to download files from CMakeLists.txt
-  ansible.builtin.pip:
-    name:
-      - gdown
-    state: latest
-    executable: pip3
+  community.general.pipx:
+    name: gdown
+    executable: /usr/bin/pipx
