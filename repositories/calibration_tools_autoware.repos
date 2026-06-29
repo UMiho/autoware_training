@@ -1,0 +1,33 @@
+repositories:
+  autoware/calibration_tools:
+    type: git
+    url: https://github.com/tier4/CalibrationTools.git
+    version: d434e57c034a625f9f3d4f7613a007c2c6fad455  # tier4/universe @ 2026-06-29 (Jazzy support)
+  vendor/lidartag:
+    type: git
+    url: https://github.com/tier4/LiDARTag.git
+    version: 58eb65e8f88ef073db8a4c988d9fa603df688c55  # humble @ 2026-06-29
+  vendor/lidartag_msgs:
+    type: git
+    url: https://github.com/tier4/LiDARTag_msgs.git
+    version: a8e94d97270969aed14c5d83729068865454a9f9  # tier4/universe @ 2026-06-29
+  vendor/apriltag_msgs:
+    type: git
+    url: https://github.com/christianrauch/apriltag_msgs.git
+    version: 3e0cbf1c2ac85f78ca097b652cb3c33db1673d24  # 2.0.0
+  vendor/apriltag_ros:
+    type: git
+    url: https://github.com/christianrauch/apriltag_ros.git
+    version: 6a6c04a16502413f114649f9bdb166c784d4fcfb
+  vendor/ros2_numpy:
+    type: git
+    url: https://github.com/Box-Robotics/ros2_numpy.git
+    version: d5ebf723e1d2457d36fa89bf021b212e340c3c11  # jazzy @ 2026-06-29
+  vendor/image_pipeline:
+    type: git
+    url: https://github.com/tier4/image_pipeline.git
+    version: 47964112293eb19f9f57254b2e6b68706954cc63
+  vendor/ndt_omp:
+    type: git
+    url: https://github.com/tier4/ndt_omp.git
+    version: 025f263f41b7cd2d00a547ca787f2d6e8e8fa79b  # tier4/main @ 2026-06-29
