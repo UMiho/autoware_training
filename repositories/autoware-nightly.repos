@@ -2,40 +2,40 @@ repositories:
   core/autoware_adapi_msgs:
     type: git
     url: https://github.com/autowarefoundation/autoware_adapi_msgs.git
-    version: main
+    version: 35a7aeb97dfbbbc363c49fc032ded0c8ba172e24  # main @ 2026-06-26
   core/autoware_internal_msgs:
     type: git
     url: https://github.com/autowarefoundation/autoware_internal_msgs.git
-    version: main
+    version: 93ab025be4f19fe18bdea386275accbf2de5a144  # main @ 2026-06-26
   core/autoware_core:
     type: git
     url: https://github.com/autowarefoundation/autoware_core.git
-    version: main
+    version: 97ebb6c0371b065ed984049ca1c1d62999519447  # main @ 2026-06-26
   core/autoware_utils: # TODO(mitsudome-r): Remove this repository entry when https://github.com/autowarefoundation/autoware/pull/5700 is merged.
     type: git
     url: https://github.com/autowarefoundation/autoware_utils.git
-    version: main
+    version: 7c6643f56f6aa76dbef9b7efd721b8535add8f69  # main @ 2026-06-26
   core/autoware_rviz_plugins:
     type: git
     url: https://github.com/autowarefoundation/autoware_rviz_plugins.git
-    version: main
+    version: b46673bec235d3e745748148f814f77ed47f2ec2  # main @ 2026-06-26
   core/autoware_system_designer:
     type: git
     url: https://github.com/autowarefoundation/autoware_system_designer.git
-    version: main
+    version: bf67ad926c9d040c2e241f66a9f4ab5a7676fe96  # main @ 2026-06-26
   universe/autoware_universe:
     type: git
     url: https://github.com/autowarefoundation/autoware_universe.git
-    version: main
+    version: e18a5311e509574326ae0ff6256108326a8132d0  # main @ 2026-06-26
   universe/external/managed_transform_buffer:
     type: git
     url: https://github.com/autowarefoundation/managed_transform_buffer.git
-    version: main
+    version: c77fe4e6b04873ba1471e995f081268d5dffa518  # main @ 2026-06-26
   universe/external/tier4_autoware_msgs:
     type: git
     url: https://github.com/tier4/tier4_autoware_msgs.git
-    version: tier4/universe
+    version: 00d0ddcb4763e64128c910628a1891816b86844b  # tier4/universe @ 2026-06-26
   launcher/autoware_launch:
     type: git
     url: https://github.com/autowarefoundation/autoware_launch.git
-    version: main
+    version: da01780208ce64ab838f0a48577799b903aac33a  # main @ 2026-06-26

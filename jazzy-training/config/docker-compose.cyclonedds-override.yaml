@@ -1,0 +1,16 @@
+# Docker Compose 用オーバーライド
+#
+# 使い方（planning-simulator など）:
+#   cd docker/examples/demos/planning-simulator
+#   docker compose \
+#     -f docker-compose.yaml \
+#     -f ../../../../jazzy-training/config/docker-compose.cyclonedds-override.yaml \
+#     up
+
+services:
+  autoware:
+    environment:
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///home/aw/cyclonedds.xml
+    volumes:
+      - ../../../../jazzy-training/config/cyclonedds.xml:/home/aw/cyclonedds.xml:ro

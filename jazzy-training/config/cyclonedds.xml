@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ROS 2 Jazzy / Autoware 向け CycloneDDS 設定
+
+  対策内容:
+  - ParticipantIndex=none : Jazzy の 32 ノード制限を回避
+  - NetworkInterface=lo   : 社内 LAN へ ROS トピックを流さない（localhost のみ）
+-->
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+  <Domain Id="any">
+    <General>
+      <Interfaces>
+        <NetworkInterface autodetermine="false" name="lo" priority="default" multicast="default"/>
+      </Interfaces>
+      <AllowMulticast>default</AllowMulticast>
+      <MaxMessageSize>65500B</MaxMessageSize>
+    </General>
+    <Discovery>
+      <ParticipantIndex>none</ParticipantIndex>
+    </Discovery>
+    <Internal>
+      <SocketReceiveBufferSize min="10MB"/>
+      <Watermarks>
+        <WhcHigh>500kB</WhcHigh>
+      </Watermarks>
+    </Internal>
+  </Domain>
+</CycloneDDS>
