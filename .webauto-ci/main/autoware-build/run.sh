@@ -10,7 +10,13 @@
 
 sudo mkdir "$AUTOWARE_PATH"
 sudo chown "$(whoami)": "$AUTOWARE_PATH"
+
 cd "$WEBAUTO_CI_SOURCE_PATH"
+
+mkdir -p src
+vcs import --recursive src < repositories/autoware.repos
+vcs import --recursive src < repositories/simulator.repos
+
 cp -r src .webauto-ci.* "$AUTOWARE_PATH"
 cd "$AUTOWARE_PATH"
 
@@ -27,10 +33,6 @@ fi
 sudo pip3 install xmlschema==3.4.5
 
 sudo -E apt-get -y update
-
-mkdir -p src
-vcs import --recursive src < repositories/autoware.repos
-vcs import --recursive src < repositories/simulator.repos
 
 # shellcheck disable=SC2012
 ROS_DISTRO=$(ls -1 /opt/ros | head -1)
