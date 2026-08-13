@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+vcs import --recursive src < repositories/autoware.repos
+vcs import --recursive src < repositories/simulator.repos
+
 ansible_args=()
 ansible_args+=("--extra-vars" "prompt_install_nvidia=y")
 ansible_args+=("--extra-vars" "prompt_download_artifacts=y")
