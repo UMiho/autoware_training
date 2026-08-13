@@ -24,7 +24,3 @@ ansible-playbook "ansible/playbooks/universe.yaml" \
     -e WORKSPACE_ROOT="$(pwd)" \
     --skip-tags vcs
 
-mkdir -p src
-vcs import --recursive src < repositories/autoware.repos
-vcs import --recursive src < repositories/simulator.repos
-

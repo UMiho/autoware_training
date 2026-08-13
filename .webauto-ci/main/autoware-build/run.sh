@@ -28,6 +28,10 @@ sudo pip3 install xmlschema==3.4.5
 
 sudo -E apt-get -y update
 
+mkdir -p src
+vcs import --recursive src < repositories/autoware.repos
+vcs import --recursive src < repositories/simulator.repos
+
 # shellcheck disable=SC2012
 ROS_DISTRO=$(ls -1 /opt/ros | head -1)
 # shellcheck disable=SC1090
