@@ -10,15 +10,13 @@
 
 sudo mkdir "$AUTOWARE_PATH"
 sudo chown "$(whoami)": "$AUTOWARE_PATH"
-
 cd "$WEBAUTO_CI_SOURCE_PATH"
-
+cp -r .webauto-ci.* "$AUTOWARE_PATH"
+cd "$AUTOWARE_PATH"
 mkdir -p src
 vcs import --recursive src < repositories/autoware.repos
 vcs import --recursive src < repositories/simulator.repos
 
-cp -r src .webauto-ci.* "$AUTOWARE_PATH"
-cd "$AUTOWARE_PATH"
 
 if [ -n "$CCACHE_DIR" ]; then
     mkdir -p "$CCACHE_DIR"
