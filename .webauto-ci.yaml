@@ -14,7 +14,7 @@ artifacts:
       source:
         vcstool:
           repositories_files:
-            # - repositories/autoware.repos
+            - repositories/autoware.repos
             - repositories/simulator.repos
           import_path: src
       environment_variables:
