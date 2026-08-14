@@ -14,7 +14,6 @@ cd "$WEBAUTO_CI_SOURCE_PATH"
 cp -r src .webauto-ci.* "$AUTOWARE_PATH"
 cd "$AUTOWARE_PATH"
 vcs import --recursive src < repositories/autoware.repos
-vcs import --recursive src < repositories/simulator.repos
 
 if [ -n "$CCACHE_DIR" ]; then
     mkdir -p "$CCACHE_DIR"
