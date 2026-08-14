@@ -13,7 +13,7 @@ sudo chown "$(whoami)": "$AUTOWARE_PATH"
 cd "$WEBAUTO_CI_SOURCE_PATH"
 pwd
 ls -la
-cp -r .webauto-ci.* "$AUTOWARE_PATH"
+cp -r .webauto-ci.* repositories "$AUTOWARE_PATH"
 cd "$AUTOWARE_PATH"
 pwd
 ls -la
