@@ -11,7 +11,7 @@
 sudo mkdir "$AUTOWARE_PATH"
 sudo chown "$(whoami)": "$AUTOWARE_PATH"
 cd "$WEBAUTO_CI_SOURCE_PATH"
-vcs import --recursive src < repositories/autoware.repos
+sudo vcs import --recursive src < repositories/autoware.repos
 cp -r src .webauto-ci.* "$AUTOWARE_PATH"
 cd "$AUTOWARE_PATH"
 
