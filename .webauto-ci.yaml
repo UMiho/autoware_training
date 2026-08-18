@@ -66,8 +66,10 @@ artifacts:
               mountpoint: /tmp/build/cache/ccache
           build_result_reuse:
             key_files:
+              - .webauto-ci.yml
               - .webauto-ci/main/autoware-build/**/*
-              - src/**/*
+              - repositories/autoware.repos
+              - repositories/simulator.repos
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
