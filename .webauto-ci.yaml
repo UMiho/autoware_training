@@ -66,7 +66,7 @@ artifacts:
               mountpoint: /tmp/build/cache/ccache
           build_result_reuse:
             key_files:
-              - .webauto-ci.yml
+              - .webauto-ci.yaml
               - .webauto-ci/main/autoware-build/**/*
               - repositories/autoware.repos
               - repositories/simulator.repos
