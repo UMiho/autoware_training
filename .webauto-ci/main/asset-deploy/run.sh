@@ -14,4 +14,3 @@ if [ -n "$WEBAUTO_CI_ML_PACKAGES_PATH" ] && [ -n "$ML_MODELS_PATH" ]; then
     echo "The following ML models have been deployed:"
     ls "$ML_MODELS_PATH"
 fi
-EOF
