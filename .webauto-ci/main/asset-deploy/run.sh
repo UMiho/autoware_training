@@ -1,4 +1,3 @@
-cat > .webauto-ci/main/asset-deploy/run.sh << 'EOF'
 #!/bin/bash -e
 
 : "${WEBAUTO_CI_ML_PACKAGES_PATH:=}"
