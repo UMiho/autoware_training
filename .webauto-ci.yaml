@@ -80,11 +80,21 @@ artifacts:
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
-        from: autoware-build
+        from: asset-deploy
         workdir: /opt/autoware
         user: autoware
 
 simulations:
+  - name: perception
+    type: perception
+    simulator:
+      deployment:
+        type: container
+        artifact: main
+      runtime:
+        type: gpu1/amd64/large
+      parameters:
+        centerpoint_model_path: "/opt/autoware/mlmodels/centerpoint_common"
   - name: localization
     type: localization
     simulator:
