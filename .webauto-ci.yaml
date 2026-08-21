@@ -75,8 +75,8 @@ artifacts:
           user: autoware
           exec: ./.webauto-ci/main/asset-deploy/run.sh
           ml_packages:
-            - name: centerpoint_common
-              release: demo/mlmodel/v0.0.2
+            - name: centerpoint
+              release: demo/mlmodel/v0.0.3
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
@@ -94,7 +94,7 @@ simulations:
       runtime:
         type: gpu1/amd64/large
       parameters:
-        centerpoint_model_path: "/opt/autoware/mlmodels/centerpoint_common"
+        centerpoint_model_path: "/opt/autoware/mlmodels/centerpoint"
   - name: localization
     type: localization
     simulator:
