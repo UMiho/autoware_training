@@ -11,12 +11,8 @@
 sudo mkdir "$AUTOWARE_PATH"
 sudo chown "$(whoami)": "$AUTOWARE_PATH"
 cd "$WEBAUTO_CI_SOURCE_PATH"
-pwd
-ls -la
 cp -r .webauto-ci.* "$AUTOWARE_PATH"
 cd "$AUTOWARE_PATH"
-pwd
-ls -la
 
 if [ -n "$CCACHE_DIR" ]; then
     mkdir -p "$CCACHE_DIR"
@@ -28,7 +24,7 @@ if [ -n "$CCACHE_DIR" ]; then
 fi
 
 # install xmlschema<4.0.0 before rosdep install as workaround for scenario_simulator_v2
-sudo pip3 install xmlschema==3.4.5
+sudo pip3 install xmlschema==3.4.5 yamale
 
 sudo -E apt-get -y update
 
@@ -41,7 +37,7 @@ ROS_DISTRO=$(ls -1 /opt/ros | head -1)
 # shellcheck disable=SC1090
 source "/opt/ros/$ROS_DISTRO/setup.bash"
 rosdep update
-rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO"
+rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO" --skip-keys "python-yamale-pip"
 
 [[ $WEBAUTO_CI_DEBUG_BUILD == "true" ]] && build_type="RelWithDebInfo" || build_type="Release"
 

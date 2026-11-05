@@ -137,3 +137,7 @@ repositories:
     type: git
     url: https://github.com/tier4/agnocast.git
     version: e24a2f5de525d127b89daeb4a4213b52cf5527c5
+  universe/external/tier4_ad_api_adaptor:
+    type: git
+    url: https://github.com/tier4/tier4_ad_api_adaptor.git
+    version: 0.46.0

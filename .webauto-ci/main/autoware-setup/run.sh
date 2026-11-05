@@ -23,4 +23,3 @@ ansible-playbook "ansible/playbooks/universe.yaml" \
     "${ansible_args[@]}" \
     -e WORKSPACE_ROOT="$(pwd)" \
     --skip-tags vcs
-
