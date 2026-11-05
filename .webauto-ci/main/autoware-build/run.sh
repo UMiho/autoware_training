@@ -42,7 +42,7 @@ rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO" --skip
 [[ $WEBAUTO_CI_DEBUG_BUILD == "true" ]] && build_type="RelWithDebInfo" || build_type="Release"
 
 colcon build \
-    --cmake-args -DCMAKE_BUILD_TYPE="$build_type" -DBUILD_TESTING=off -Wno-dev --no-warn-unused-cli \
+    --cmake-args -DCMAKE_BUILD_TYPE="$build_type" -DCMAKE_CUDA_ARCHITECTURES="75;80;86;89" -DBUILD_TESTING=off -Wno-dev --no-warn-unused-cli \
     --symlink-install \
     --catkin-skip-building-tests \
     --executor parallel \
