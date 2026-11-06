@@ -11,7 +11,7 @@ function build_and_clean() {
         colcon build --cmake-args \
             " -Wno-dev" \
             " --no-warn-unused-cli" \
-            " -DCMAKE_CUDA_ARCHITECTURES=75;80;86;89" \
+            " -DCMAKE_CUDA_ARCHITECTURES=75;80;86;89-virtual" \
             --merge-install \
             --install-base "$install_base" \
             --mixin release compile-commands ccache \
