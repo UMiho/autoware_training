@@ -19,11 +19,18 @@ artifacts:
       #     import_path: src
       environment_variables:
         AUTOWARE_PATH: /opt/autoware
+        ML_MODELS_PATH: /opt/autoware/mlmodels 
         DEBIAN_FRONTEND: noninteractive
         LANG: C.UTF-8
       linux_parameters:
         kernel_version: 5.19.0-50-generic
       phases:
+        - name: asset-deploy
+          user: autoware
+          exec: ./.webauto-ci/main/asset-deploy/run.sh
+          ml_packages:
+            - name: centerpoint_tiny
+              release: demo/mlmodel/v0.0.4
         - name: environment-setup
           user: root
           exec: ./.webauto-ci/main/environment-setup/run.sh
@@ -73,11 +80,29 @@ artifacts:
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
-        from: autoware-build
+        from: asset-deploy
         workdir: /opt/autoware
         user: autoware
 
 simulations:
+  - name: perception
+    type: perception
+    simulator:
+      deployment:
+        type: container
+        artifact: main
+      runtime:
+        type: gpu2/amd64/medium
+      parameters:
+        centerpoint_model_path: "/opt/autoware/mlmodels/centerpoint_tiny"
+  - name: localization
+    type: localization
+    simulator:
+      deployment:
+        type: container
+        artifact: main
+      runtime:
+        type: standard1/amd64/large
   - name: lexus_planning_sim
     type: planning_sim_v2
     simulator:

@@ -1,4 +1,24 @@
 repositories:
+  simulator/perception_eval:
+    type: git
+    url: https://github.com/tier4/autoware_perception_evaluation.git
+    version: main
+  simulator/driving_log_replayer_v2:
+    type: git
+    url: https://github.com/tier4/driving_log_replayer_v2.git
+    version: main
+  simulator/vendor/ros2_numpy:
+    type: git
+    url: https://github.com/Box-Robotics/ros2_numpy.git
+    version: humble
+  simulator/vendor/ros2bag_extensions:
+    type: git
+    url: https://github.com/tier4/ros2bag_extensions.git
+    version: main
+  simulator/tool/autoware_tools:
+    type: git
+    url: https://github.com/autowarefoundation/autoware_tools.git
+    version: 0.6.0
   simulator/scenario_simulator:
     type: git
     url: https://github.com/tier4/scenario_simulator_v2.git
