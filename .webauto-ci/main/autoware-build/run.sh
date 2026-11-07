@@ -39,7 +39,7 @@ source "/opt/ros/$ROS_DISTRO/setup.bash"
 rosdep update
 #rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO" --skip-keys "python-yamale-pip"
 rosdep install -y \
-  --from-paths src/core src/universe/autoware_universe/perception src/launcher \
+  --from-paths src/core src/universe src/launcher src/sensor_component src/middleware \
   --ignore-src \
   --rosdistro "$ROS_DISTRO"
 
