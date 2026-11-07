@@ -37,7 +37,11 @@ ROS_DISTRO=$(ls -1 /opt/ros | head -1)
 # shellcheck disable=SC1090
 source "/opt/ros/$ROS_DISTRO/setup.bash"
 rosdep update
-rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO" --skip-keys "python-yamale-pip"
+#rosdep install -y --from-paths src --ignore-src --rosdistro "$ROS_DISTRO" --skip-keys "python-yamale-pip"
+rosdep install -y \
+  --from-paths src/core src/universe src/launcher \
+  --ignore-src \
+  --rosdistro "$ROS_DISTRO"
 
 [[ $WEBAUTO_CI_DEBUG_BUILD == "true" ]] && build_type="RelWithDebInfo" || build_type="Release"
 
