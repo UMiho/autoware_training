@@ -25,12 +25,6 @@ artifacts:
       linux_parameters:
         kernel_version: 5.19.0-50-generic
       phases:
-        - name: asset-deploy
-          user: autoware
-          exec: ./.webauto-ci/main/asset-deploy/run.sh
-          ml_packages:
-            - name: centerpoint_tiny
-              release: demo/mlmodel/v0.0.4
         - name: environment-setup
           user: root
           exec: ./.webauto-ci/main/environment-setup/run.sh
@@ -77,6 +71,12 @@ artifacts:
               - .webauto-ci/main/autoware-build/**/*
               - repositories/autoware.repos
               - repositories/simulator.repos
+        - name: asset-deploy
+          user: autoware
+          exec: ./.webauto-ci/main/asset-deploy/run.sh
+          ml_packages:
+            - name: centerpoint_tiny
+              release: demo/mlmodel/v0.0.4
       base_container_image:
         from: ubuntu:22.04
       output_container_image:
